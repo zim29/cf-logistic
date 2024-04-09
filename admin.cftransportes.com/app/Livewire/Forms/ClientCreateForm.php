@@ -8,7 +8,7 @@ use Livewire\Form;
 class ClientCreateForm extends Form
 {   
     #[Validate('required|exists:person_types,id')]
-    public $person_type_id;
+    public $person_type_id = '';
     #[Validate('required')]
     public $full_name;
     #[Validate('required')]
@@ -37,7 +37,7 @@ class ClientCreateForm extends Form
     public $website;
     #[Validate('required')]
     public $email;
-    #[Validate('required')]
+    #[Validate('required|boolean')]
     public $corporate_group;
     #[Validate('required')]
     public $group_origin_country;
@@ -61,7 +61,7 @@ class ClientCreateForm extends Form
     public $board_members;
     #[Validate('required')]
     public $major_shareholders;
-    #[Validate('required')]
+    #[Validate('required|boolean')]
     public $politically_exposed_person;
     #[Validate('required')]
     public $source_of_funds;
@@ -78,8 +78,8 @@ class ClientCreateForm extends Form
     #[Validate('required')]
     public $number_of_employees;
     #[Validate('required|exists:tax_classifications,id|')]
-    public $tax_classification_id;
-    #[Validate('required')]
+    public $tax_classification_id = '';
+    #[Validate('required|boolean')]
     public $anti_money_laundering_policy;
     #[Validate('required')]
     public $geographic_zones;

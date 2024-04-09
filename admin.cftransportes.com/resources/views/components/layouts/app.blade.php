@@ -81,6 +81,8 @@
     </div>
     <div id="responsive-overlay"></div>
 
+    @livewire('Alert');
+
     <!-- Popper JS -->
     <script src="{{ asset( 'assets/libs/@popperjs/core/umd/popper.min.js' ) }}"></script>
 
@@ -106,6 +108,7 @@
 
     <!-- Apex Charts JS -->
     <script src="{{ asset( 'assets/libs/apexcharts/apexcharts.min.js' ) }}"></script>
+    @livewireScripts 
 
 </body>
 

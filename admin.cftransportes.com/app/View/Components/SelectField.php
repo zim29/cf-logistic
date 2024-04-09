@@ -9,7 +9,6 @@ use Illuminate\View\Component;
 class SelectField extends Component
 {
     public $name;
-    public $value;
     public $model;
     public $tabindex;
     public $class;
@@ -20,7 +19,6 @@ class SelectField extends Component
 
     public function __construct(
             $name = null, 
-            $value = null,
             $model = null, 
             $tabindex = null, 
             $class = 'form-control', 
@@ -31,7 +29,6 @@ class SelectField extends Component
     )
     {
         $this->name = $name;
-        $this->value = $value;
         $this->model = $model;
         $this->tabindex = $tabindex;
         $this->class = $class;

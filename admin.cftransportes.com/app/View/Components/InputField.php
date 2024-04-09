@@ -15,6 +15,7 @@ class InputField extends Component
     public $class;
     public $disabled;
     public $label;
+    public $type;
 
     public function __construct(
             $name = null, 
@@ -23,7 +24,8 @@ class InputField extends Component
             $tabindex = null, 
             $class = 'form-control', 
             $disabled = false, 
-            $label = null
+            $label = null,
+            $type = null
     )
     {
         $this->name = $name;
@@ -33,6 +35,7 @@ class InputField extends Component
         $this->class = $class;
         $this->disabled = $disabled;
         $this->label = $label;
+        $this->type = $type;
     }
 
     /**

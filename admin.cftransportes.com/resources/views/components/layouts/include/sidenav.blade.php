@@ -38,7 +38,7 @@
                     </li>
                     <li class="slide">
                         <a href="{{ route('person-type-create') }}" class="side-menu__item">{{ __('Crear') }}</a>
-                        <a href="index.html" class="side-menu__item">{{ __('Listar') }}</a>
+                        <a href="{{ route('person-type-index') }}" class="side-menu__item">{{ __('Listar') }}</a>
                     </li>
                 </ul>
             </li>
@@ -57,7 +57,7 @@
                     </li>
                     <li class="slide">
                         <a href="{{ route('client-create') }}" class="side-menu__item">{{ __('Crear') }}</a>
-                        <a href="index.html" class="side-menu__item">{{ __('Listar') }}</a>
+                        <a href="{{ route('client-index') }}" class="side-menu__item">{{ __('Listar') }}</a>
                     </li>
                 </ul>
             </li>
@@ -75,8 +75,46 @@
                         <a href="javascript:void(0)">{{ __('Ordenes') }}</a>
                     </li>
                     <li class="slide">
-                        <a href="index.html" class="side-menu__item">Crear</a>
-                        <a href="index.html" class="side-menu__item">Listar</a>
+                        <a href="{{ route('order-create') }}" class="side-menu__item">Crear</a>
+                        <a href="{{ route('order-index') }}" class="side-menu__item">Listar</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- End::slide -->
+
+            <!-- Start::slide -->
+            <li class="slide has-sub">
+                <a href="javascript:void(0);" class="side-menu__item">
+                    <i class="bx bx-book-contnt side-menu__icon"></i>
+                    <span class="side-menu__label">{{ __('Vehículos') }}</span>
+                    <i class="fe fe-chevron-right side-menu__angle"></i>
+                </a>
+                <ul class="slide-menu child1">
+                    <li class="slide side-menu__label1">
+                        <a href="javascript:void(0)">{{ __('Vehículos') }}</a>
+                    </li>
+                    <li class="slide">
+                        <a href="{{ route('vehicle-create') }}" class="side-menu__item">Crear</a>
+                        <a href="{{ route('vehicle-index') }}" class="side-menu__item">Listar</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- End::slide -->
+
+            <!-- Start::slide -->
+            <li class="slide has-sub">
+                <a href="javascript:void(0);" class="side-menu__item">
+                    <i class="bx bx-book-contnt side-menu__icon"></i>
+                    <span class="side-menu__label">{{ __('Almacenes') }}</span>
+                    <i class="fe fe-chevron-right side-menu__angle"></i>
+                </a>
+                <ul class="slide-menu child1">
+                    <li class="slide side-menu__label1">
+                        <a href="javascript:void(0)">{{ __('Almacenes') }}</a>
+                    </li>
+                    <li class="slide">
+                        <a href="{{ route('warehouse-create') }}" class="side-menu__item">Crear</a>
+                        <a href="{{ route('warehouse-index') }}" class="side-menu__item">Listar</a>
                     </li>
                 </ul>
             </li>

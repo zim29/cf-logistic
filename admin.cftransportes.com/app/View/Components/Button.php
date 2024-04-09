@@ -12,13 +12,17 @@ class Button extends Component
     public $label;
     public $color;
     public $fullSize;
+    public $class;
+    public $model;
 
-    public function __construct($type, $label, $color, $fullSize)
+    public function __construct($type, $label, $color, $fullSize, $class='', $model=null)
     {
         $this->type = $type;
         $this->label = $label;
         $this->color = $color;
         $this->fullSize = $fullSize;
+        $this->class = $class;
+        $this->model = $model;
     }
 
     /**

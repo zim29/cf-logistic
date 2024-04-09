@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('website')->nullable();
             $table->string('email')->nullable();
-            $table->string('corporate_group')->nullable();
+            $table->boolean('corporate_group')->nullable();
             $table->string('group_origin_country')->nullable();
             $table->string('legal_representative_name')->nullable();
             $table->string('legal_representative_birthplace')->nullable();
@@ -58,7 +58,8 @@ return new class extends Migration
             $table->text('commercial_references')->nullable();
             $table->text('bank_references')->nullable();
             $table->timestamps();
-            $table->boolean('status');
+            $table->boolean('status')
+                        ->default(true);
             $table->foreignId('creator_id')
                         ->nullable();
         });

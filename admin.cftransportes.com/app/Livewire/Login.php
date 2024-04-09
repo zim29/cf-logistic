@@ -21,7 +21,7 @@ class Login extends Component
 
     public function login( )
     {
-
+        $this->form->validate();
         $credentials = [
             'email' => $this->form->email,
             'password' => $this->form->password,

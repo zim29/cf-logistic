@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->boolean('status');
+            $table->boolean('status')
+                        ->default(true);
             $table->foreignId('creator_id')
                         ->nullable();
         });

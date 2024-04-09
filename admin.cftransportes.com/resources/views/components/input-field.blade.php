@@ -1,5 +1,5 @@
 <div class="form-floating my-3">
-    <input  type="text"
+    <input  type="{{$type}}"
             id="{{ $name }}"
             name="{{ $name }}"
             value="{{ $value }}"

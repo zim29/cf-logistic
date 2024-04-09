@@ -84,9 +84,7 @@
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Show Password JS -->
-    <script src="{{ asset('assets/js/show-password.js') }}"></script>
+    @livewireScripts 
 
 </body>
 

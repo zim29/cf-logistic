@@ -11,7 +11,7 @@ class Card extends Component
     
     public $title;
     
-    public function __construct($title = 'Titulo')
+    public function __construct($title = null)
     {
         $this->title = $title;
     }

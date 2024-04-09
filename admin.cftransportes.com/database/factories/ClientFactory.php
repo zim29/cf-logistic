@@ -34,7 +34,7 @@ class ClientFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'website' => $this->faker->url,
             'email' => $this->faker->unique()->safeEmail,
-            'corporate_group' => $this->faker->word,
+            'corporate_group' =>  $this->faker->boolean,
             'group_origin_country' => $this->faker->country,
             'legal_representative_name' => $this->faker->name,
             'legal_representative_birthplace' => $this->faker->country,

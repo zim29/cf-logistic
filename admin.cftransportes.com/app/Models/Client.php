@@ -5,9 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+use App\Traits\SearchableTrait;
+
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory, SearchableTrait;
+
+    protected $searchableFields = ['full_name', 'business_name', 'tax_identification_number'];
+
+    protected $searchableRelations = [
+        'personType' => ['name'],
+        'creator' => ['name'],
+    ];
+
+    protected $casts = [
+        'anti_money_laundering_policy' => 'boolean',
+        'corporate_group' => 'boolean',
+        'status' => 'boolean',
+    ];
 
     protected $fillable = [
         'person_type_id',
@@ -50,7 +67,16 @@ class Client extends Model
         'geographic_zones',
         'commercial_references',
         'bank_references',
+        'status',
+        'creator_id',
     ];
+
+    public function createdAt () : Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s'),
+        );
+    }
 
     public function personType()
     {
@@ -60,5 +86,10 @@ class Client extends Model
     public function taxClassification()
     {
         return $this->belongsTo(TaxClassification::class);
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
     }
 }

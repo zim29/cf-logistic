@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
-            $table->boolean('status');
+            $table->boolean('status')
+                        ->default(true);
             $table->foreignId('creator_id')
                         ->nullable();
         });

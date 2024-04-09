@@ -12,7 +12,7 @@ class ButtonSuccess extends Component
     public $label;
     public $fullSize;
 
-    public function __construct($type, $label, $fullSize)
+    public function __construct( $type = 'button', $label, $fullSize='false')
     {
         $this->type = $type;
         $this->label = $label;
