@@ -9,6 +9,7 @@
                 <x-table.head>Creado por</x-table.head>
                 <x-table.head>Fecha de creación</x-table.head>
                 <x-table.head>Estado</x-table.head>
+                <x-table.head>Estado</x-table.head>
             </x-slot>
             <x-slot name="body">
 
@@ -40,6 +41,7 @@
                 <div class="w-100 vstack gap-2">
                     <x-button-primary type="button" fullSize="true" label="Asignar orden" wire:click="assignOrder"/>
                     <x-button-primary type="button" fullSize="true" label="Historial de cambios" wire:click="showOrderHistory" />
+                    <x-button-primary type="button" fullSize="true" label="Ver detalles del pedido" wire:click="showOrder" />
                 </div>
             </div>
         </x-slot>

@@ -28,6 +28,7 @@ class Order extends Model
         'pay_method_id',
         'items',
         'status',
+        'is_approved',
         'creator_id',
     ];
 
@@ -35,8 +36,16 @@ class Order extends Model
     {
         return Attribute::make(
             set: fn (array $items) => serialize($items),
-            get: fn (array $items) => unserialize($items),
+            get: fn (string $items) => unserialize($items),
         );
+    }
+
+    public function approve () : bool
+    {
+        $this->is_approved = true;
+        $this->save();
+
+        return $this->wasChanged('is_approved');
     }
 
 
@@ -53,6 +62,10 @@ class Order extends Model
 
     public function client () {
         return $this->belongsTo( Client::class );
+    }
+
+    public function payMethod () {
+        return $this->belongsTo( PayMethod::class );
     }
 
     public function history () {

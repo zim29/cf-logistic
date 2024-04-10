@@ -30,6 +30,11 @@ class OrderIndex extends Component
         return redirect()->route('order-history', $this->order_id);
     }
 
+    public function showOrder () 
+    {
+        return redirect()->route('order-view', $this->order_id);
+    }
+
     public function render()
     {
         return view('livewire.order-index', [

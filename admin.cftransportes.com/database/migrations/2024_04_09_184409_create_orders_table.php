@@ -21,6 +21,8 @@ return new class extends Migration {
             $table->text('items');
             $table->boolean('status')
                 ->default(true);
+            $table->boolean('is_approved')
+                ->default(false);
             $table->foreignId('creator_id')
                         ->nullable();
             $table->timestamps();

@@ -20,6 +20,9 @@ use App\Livewire\VehicleView;
 use App\Livewire\WarehouseCreate;
 use App\Livewire\WarehouseIndex;
 use App\Livewire\WarehouseView;
+use App\Livewire\UserCreate;
+use App\Livewire\UserIndex;
+use App\Livewire\UserView;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,6 +55,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/warehouse/index', WarehouseIndex::class )->name('warehouse-index');
     Route::get('/warehouse/view/{item}', WarehouseView::class )->name('warehouse-view');
 
+    Route::get('/user/create', UserCreate::class )->name('user-create');
+    Route::get('/user/index', UserIndex::class )->name('user-index');
+    Route::get('/user/view/{item}', UserView::class )->name('user-view');
 
 
     Route::get('/logout',  function () {

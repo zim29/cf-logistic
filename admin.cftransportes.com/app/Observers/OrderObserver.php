@@ -14,10 +14,25 @@ class OrderObserver implements ShouldHandleEventsAfterCommit
         $data = [
             'order_id' => $order->id,
             'creator_id' => $order->creator_id,
+            'status' => 'Orden generada',
             'comment' => 'Orden generada exitosamente',
-            'status' => 'Orden generada'
         ];
 
         OrderHistory::create($data);
+    }
+
+    public function updating(Order $order)
+    {
+        if($order->isDirty('is_approved'))
+        {
+            $data = [
+                'order_id' => $order->id,
+                'creator_id' => \Auth::id(),
+                'status' => 'Orden aprobada exitosamente',
+                'comment' => 'La orden ha sido aprobada y esta en proceso de despacho',
+            ];
+    
+            OrderHistory::create($data);
+        }
     }
 }
