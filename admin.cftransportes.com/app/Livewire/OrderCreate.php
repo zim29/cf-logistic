@@ -50,7 +50,7 @@ class OrderCreate extends Component
     }
 
     public function save() {
-
+        $this->authorize('create', Order::class);
         $data = $this->form->validate();
 
         try{
@@ -73,6 +73,7 @@ class OrderCreate extends Component
 
     public function mount () : void 
     {
+        $this->authorize('create', Order::class);
         $this->payMethods = PayMethod::select('id', 'name')
                                         ->where('status', true)
                                         ->pluck('name', 'id')

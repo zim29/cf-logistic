@@ -33,7 +33,7 @@
                     @endforeach
                 </x-slot>
             </x-table>
-            @if (!$order->is_approved)
+            @if (!$order->is_approved && \Auth::user()->can('approve', $order))
                 <div class="mb-3">
                     <x-button-primary wire:click="approve" label="Autorizar para despacho" fullSize="false"
                         type="button"></x-button-primary>

@@ -53,6 +53,7 @@ class PersonTypeView extends Component
 
     public function mount ( Model $item) : void 
     {
+        $this->authorize('view', $item);
         $this->model = $item;
         $this->statusOptions = [
             "1" => __('Activo'),

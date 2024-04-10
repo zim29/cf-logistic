@@ -19,6 +19,7 @@ class PersonTypeIndex extends Component
 
     public function mount () : void 
     {
+        $this->authorize('viewAny', Model::class);
         $this->results = Model::search($this->search)->get();
     }
     public function render()

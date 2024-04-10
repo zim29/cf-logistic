@@ -23,6 +23,8 @@ use App\Livewire\WarehouseView;
 use App\Livewire\UserCreate;
 use App\Livewire\UserIndex;
 use App\Livewire\UserView;
+use App\Livewire\DispatchOrderIndex;
+
 
 
 
@@ -57,6 +59,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/create', UserCreate::class )->name('user-create');
     Route::get('/user/index', UserIndex::class )->name('user-index');
     Route::get('/user/view/{item}', UserView::class )->name('user-view');
+
+    Route::get('/dispatch-order/index', DispatchOrderIndex::class )->name('dispatch-index');
+
 
 
     Route::get('/logout',  function () {

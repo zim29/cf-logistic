@@ -18,6 +18,11 @@ class VehicleIndex extends Component
     {
         $this->resetPage();
     }
+
+    public function mount() : void 
+    {
+        $this->authorize('viewAny', Model::class);
+    }
     public function render()
     {
         return view('livewire.vehicle-index', [

@@ -39,6 +39,11 @@ class PersonTypeCreate extends Component
 
 
     }
+
+    public function mount() : void 
+    {
+        $this->authorize('create', Model::class);
+    }
     public function render()
     {
         return view('livewire.person-type-create');

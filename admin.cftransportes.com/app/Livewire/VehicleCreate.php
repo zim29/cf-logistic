@@ -15,6 +15,8 @@ class VehicleCreate extends Component
 
     public function save () : void 
     {
+        $this->authorize('create', Model::class);
+        
         $data = $this->form->validate();
         
         try {
@@ -38,6 +40,11 @@ class VehicleCreate extends Component
         }
 
 
+    }
+
+    public function mount () : void
+    {
+        $this->authorize('create', Model::class);
     }
 
     public function render()

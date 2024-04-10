@@ -1,5 +1,5 @@
 <div>
-    <x-breadcrumb title="Entidades" route="Entidades,Listar" />
+    <x-breadcrumb title="Vehículos" route="Vehículos,Listar" />
     <x-input-field name="search" model="search" label="Buscar" />
     <x-card title="Listar">
         <x-table>
