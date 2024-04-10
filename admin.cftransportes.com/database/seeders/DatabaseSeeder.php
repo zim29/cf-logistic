@@ -34,9 +34,9 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Admin', 'email'=> 'admin@example.com', 'password'=> Hash::make('password'), 'role_id' => 1],
             ['name' => 'finanzas', 'email'=> 'finanzas@example.com', 'password'=> Hash::make('password'), 'role_id' => 2],
             ['name' => 'ventas', 'email'=> 'ventas@example.com', 'password'=> Hash::make('password'), 'role_id' => 3],
-            ['name' => 'Operaciones', 'email'=> 'admin@example.com', 'password'=> Hash::make('password'), 'role_id' => 4],
-            ['name' => 'Delivery', 'email'=> 'admin@example.com', 'password'=> Hash::make('password'), 'role_id' => 5],
-            ['name' => 'Cliente', 'email'=> 'admin@example.com', 'password'=> Hash::make('password'), 'role_id' => 6, 'client_id' => 1],
+            ['name' => 'Operaciones', 'email'=> 'operaciones@example.com', 'password'=> Hash::make('password'), 'role_id' => 4],
+            ['name' => 'Delivery', 'email'=> 'delivery@example.com', 'password'=> Hash::make('password'), 'role_id' => 5],
+            ['name' => 'Cliente', 'email'=> 'cliente@example.com', 'password'=> Hash::make('password'), 'role_id' => 6, 'client_id' => 1],
         ];
 
         foreach ($users as $user) {
