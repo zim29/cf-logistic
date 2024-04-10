@@ -24,10 +24,9 @@ use App\Livewire\UserCreate;
 use App\Livewire\UserIndex;
 use App\Livewire\UserView;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+
+Route::get('/', Login::class );
 Route::get('/login', Login::class )->name('login');
 
 Route::middleware(['auth'])->group(function () {
