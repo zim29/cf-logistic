@@ -1,10 +1,11 @@
 <div>
-    <x-breadcrumb title="Ordenes" route="Ordenes,Listar" />
+    <x-breadcrumb title="Ordenes de despacho" route="Ordenes de despacho,Listar" />
     <x-input-field name="search" model="search" label="Buscar" />
     <x-card title="Listar">
         <x-table>
             <x-slot name="head">
                 <x-table.head>No. Orden</x-table.head>
+                <x-table.head>No. Despacho</x-table.head>
                 <x-table.head>Cliente</x-table.head>
                 <x-table.head>Creado por</x-table.head>
                 <x-table.head>Fecha de creación</x-table.head>

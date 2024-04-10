@@ -28,8 +28,8 @@ class OrderObserver implements ShouldHandleEventsAfterCommit
             $data = [
                 'order_id' => $order->id,
                 'creator_id' => \Auth::id(),
-                'status' => 'Orden aprobada exitosamente',
-                'comment' => 'La orden ha sido aprobada y esta en proceso de despacho',
+                'status' => 'Orden aprobada',
+                'comment' => 'La orden ha sido aprobada y está en proceso de despacho',
             ];
     
             OrderHistory::create($data);
