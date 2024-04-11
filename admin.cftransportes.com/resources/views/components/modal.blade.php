@@ -1,4 +1,4 @@
-<div class="modal fade" id="{{ $id }}" {{$attributes}}>
+<div class="modal fade" id="{{ $id }}" {{$attributes}} wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered text-center" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">

@@ -13,6 +13,7 @@ class OrderView extends Component
     use WithFileUploads;
     public Model $order;
     public $pay_method_id = '';
+    public $pay_method_reference = '';
     public array $payMethods;
 
     public $file;
@@ -25,7 +26,10 @@ class OrderView extends Component
         $this->payMethods = PayMethod::where('status', true)->pluck('name', 'id')->toArray();
 
         if ($item->pay_method_id !== null)
+        {
             $this->pay_method_id = $item->pay_method_id;
+            $this->pay_method_reference = $item->pay_method_reference;
+        }
 
     }
 
@@ -36,6 +40,8 @@ class OrderView extends Component
         if($this->pay_method_id === '') return;
 
         $this->order->pay_method_id = $this->pay_method_id;
+        $this->order->pay_method_reference = $this->pay_method_reference;
+
         $this->order->save();
         if($this->file) $this->file->storeAs('confirmations',"payment-confirmation-" . $this->order->id, 'public');
         $this->dispatch('success');
@@ -44,6 +50,13 @@ class OrderView extends Component
     public function approve()
     {
         $this->authorize("approve", $this->order);
+        
+        if(!$this->order->pay_method_id)
+        {
+            $this->dispatch('error', message: __('No puedes autorizar un despacho si no has reportado el pago del servicio.'));
+            return;
+        }
+
         if ($this->order->approve())
             $this->dispatch("success");
         else

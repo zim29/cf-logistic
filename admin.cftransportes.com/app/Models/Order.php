@@ -26,6 +26,7 @@ class Order extends Model
     protected $fillable = [
         'client_id',
         'pay_method_id',
+        'pay_method_reference',
         'items',
         'status',
         'is_approved',
@@ -39,6 +40,7 @@ class Order extends Model
             get: fn (string $items) => unserialize($items),
         );
     }
+
 
     public function approve () : bool
     {

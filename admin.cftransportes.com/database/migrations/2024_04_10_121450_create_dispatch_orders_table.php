@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->foreignId('creator_id');
             $table->foreignId('warehouse_id')
                 ->nullable();
+            $table->foreignId('driver_id')
+                ->nullable();
             $table->boolean('on_delivery')
                 ->default(false);
             $table->text('items');

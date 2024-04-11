@@ -78,6 +78,22 @@ class Client extends Model
         );
     }
 
+    public function bankReferences () : Attribute
+    {
+        return Attribute::make(
+            set: fn (array $items) => serialize($items),
+            get: fn (string $items) => unserialize($items),
+        );
+    }
+
+    public function commercialReferences () : Attribute
+    {
+        return Attribute::make(
+            set: fn (array $items) => serialize($items),
+            get: fn (string $items) => unserialize($items),
+        );
+    }
+
     public function personType()
     {
         return $this->belongsTo(PersonType::class);

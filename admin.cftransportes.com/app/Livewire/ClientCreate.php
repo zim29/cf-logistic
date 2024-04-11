@@ -23,6 +23,30 @@ class ClientCreate extends Component
         $this->form->validateOnly($field);
     }
 
+    public function addBankField(): void
+    {
+
+
+        $this->form->bank_references[] = '';
+    }
+
+    public function deleteBankField ($key) : void 
+    {
+        unset($this->form->bank_references[$key]);
+    }
+
+    public function addCommercialField(): void
+    {
+
+
+        $this->form->commercial_references[] = '';
+    }
+
+    public function deleteCommercialField ($key) : void 
+    {
+        unset($this->form->commercial_references[$key]);
+    }
+
     public function save()
     {
         $data = $this->form->validate();
@@ -31,15 +55,14 @@ class ClientCreate extends Component
             DB::beginTransaction();
             $client = Client::create($data);
 
-            if($client) 
-            {
+            if ($client) {
                 DB::commit();
                 $this->form->reset();
                 $this->dispatch('success');
             }
 
-        } catch ( \Exception $e) {
-            
+        } catch (\Exception $e) {
+
             $this->dispatch('error');
             $class = get_class($this);
             $errorMessage = $e->getMessage();
@@ -52,13 +75,16 @@ class ClientCreate extends Component
     public function mount(): void
     {
         $this->personTypes = PersonType::select('id', 'name')
-                                            ->where('status', true)
-                                            ->pluck('name', 'id')
-                                            ->toArray();
+            ->where('status', true)
+            ->pluck('name', 'id')
+            ->toArray();
         $this->taxClassifications = TaxClassification::select('id', 'name')
-                                            ->where('status', true)
-                                            ->pluck('name', 'id')
-                                            ->toArray();
+            ->where('status', true)
+            ->pluck('name', 'id')
+            ->toArray();
+
+        $this->addBankField();
+        $this->addCommercialField();
     }
 
     public function render()

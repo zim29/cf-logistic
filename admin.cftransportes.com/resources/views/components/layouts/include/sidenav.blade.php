@@ -4,14 +4,10 @@
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
         <a href="/" class="header-logo">
-            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
-                class="desktop-logo">
-            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
-                class="toggle-logo">
-            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
-                class="desktop-dark">
-            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
-                class="toggle-dark">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="desktop-logo">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="toggle-logo">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="desktop-dark">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="toggle-dark">
         </a>
     </div>
     <!-- End::main-sidebar-header -->
@@ -32,6 +28,17 @@
                 <li class="slide__category"><span class="category-name">{{ __('Menú Principal') }}</span></li>
                 <!-- End::slide__category -->
 
+                <!-- Start::slide -->
+                <li class="slide">
+                    <a href="{{ route('dashboard') }}" class="side-menu__item" >
+                        <i class="side-menu__icon"></i>
+                        <span class="side-menu__label">{{ __('Dashboard') }}</span>
+                        <i class="fe fe-chevron-right side-menu__angle"></i>
+                    </a>
+
+                </li>
+                <!-- End::slide -->
+
                 @can('viewAny', \App\Models\PersonType::class)
                     <!-- Start::slide -->
                     <li class="slide has-sub">
@@ -45,7 +52,8 @@
                                 <a href="javascript:void(0)">{{ __('Entidades') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="{{ route('person-type-create') }}" class="side-menu__item">{{ __('Crear') }}</a>
+                                <a href="{{ route('person-type-create') }}"
+                                    class="side-menu__item">{{ __('Crear') }}</a>
                                 <a href="{{ route('person-type-index') }}" class="side-menu__item">{{ __('Listar') }}</a>
                             </li>
                         </ul>

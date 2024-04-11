@@ -45,17 +45,39 @@
         <x-slot name="body">
             <div class="d-flex justify-content-center">
                 <div class="w-100 vstack gap-2">
-                    <x-button-primary type="button" fullSize="true" label="Asignar despacho" wire:click="assignOrder"/>
+                    <x-button-primary type="button" fullSize="true" label="Asignar despacho" onclick="showDeliveryDialog()"/>
                     <x-button-primary type="button" fullSize="true" label="Ver detalles del despacho" wire:click="showOrder" />
                     <x-button-primary type="button" fullSize="true" label="Anular despacho" wire:click="cancelOrder" />
                 </div>
             </div>
         </x-slot>
     </x-modal>
+
+    <x-modal id="assign-order-dialog" title="Opciones">
+        <x-slot name="body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <x-select-field label="Repartidor" model="driver_id" :options="$deliveries" />
+                </div>
+                <div class="col-sm-12">
+                    <x-button-primary label="Asignar" fullSize="true" type="button" wire:click="assignDispatch" />
+                </div>
+            </div>
+        </x-slot>
+    </x-modal>
+    
     <script>
         function showOrderDialog(id) {
             @this.order_id = id;
             const modal = bootstrap.Modal.getOrCreateInstance('#order-option-dialog');
+            modal.show();
+        }
+
+        function showDeliveryDialog() {
+            document.querySelectorAll('.modal').forEach(element => {
+                    bootstrap.Modal.getOrCreateInstance(element).hide();
+                });
+            const modal = bootstrap.Modal.getOrCreateInstance('#assign-order-dialog');
             modal.show();
         }
     </script>

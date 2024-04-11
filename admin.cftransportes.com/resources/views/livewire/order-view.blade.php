@@ -19,7 +19,7 @@
                         <div class="col-sm-12 mt-md-4">
                             <h5>{{ __('Comprobante de pago') }}</h5>
                             <input type="file" name="file" wire:model="file" />
-                            <x-input-field tabindex="1" label="Numero de comprobante" model="" />
+                            <x-input-field tabindex="1" label="Numero de comprobante" model="pay_method_reference" />
                             @if ($file)
                                 <img src="{{ $file->temporaryUrl() }}" alt="" class="img-fluid rounded"
                                     width="400px">
@@ -42,7 +42,7 @@
                         <div class="col-sm-12 mt-md-4">
                             <h5>Comprobante de pago</h5>
                             <input type="file" name="file" model="file" wire:model="file" />
-                            <x-input-field tabindex="1" label="Numero de comprobante" />
+                            <x-input-field tabindex="1" label="Numero de comprobante" model="pay_method_reference" />
                             @if ($file)
                                 <img src="{{ $file->temporaryUrl() }}" alt="" class="img-fluid rounded"
                                     width="400px">

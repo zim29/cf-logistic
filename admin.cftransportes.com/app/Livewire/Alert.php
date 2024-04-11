@@ -12,9 +12,9 @@ class Alert extends Component
     public $color;
 
     #[On('success')]
-    public function success () : void 
+    public function success ($message = '') : void 
     {
-        $this->message = __('Solicitud procesada exitósamente');
+        $this->message = __("Solicitud procesada exitósamente \n $message");
         $this->icon = 'bi-check-circle-fill';
         $this->color = 'success';
 

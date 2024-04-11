@@ -58,4 +58,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo( Role::class );
     }
+
+    public function vehicle () 
+    {
+        return $this->hasMany( Vehicle::class, 'driver_id' );
+    }
 }

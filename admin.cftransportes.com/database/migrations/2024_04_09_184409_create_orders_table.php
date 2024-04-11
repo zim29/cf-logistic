@@ -19,6 +19,8 @@ return new class extends Migration {
                 ->nullable()
                 ->constrained()
                 ->restrictOnDelete();
+            $table->string('pay_method_reference')
+                ->nullable();
             $table->text('items');
             $table->boolean('status')
                 ->default(true);

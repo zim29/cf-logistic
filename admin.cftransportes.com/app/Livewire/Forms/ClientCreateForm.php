@@ -83,8 +83,8 @@ class ClientCreateForm extends Form
     public $anti_money_laundering_policy;
     #[Validate('required')]
     public $geographic_zones;
-    #[Validate('required')]
-    public $commercial_references;
-    #[Validate('required')]
-    public $bank_references;
+    #[Validate('required|array|min:1')]
+    public $commercial_references = [];
+    #[Validate('required|array|min:1')]
+    public $bank_references = [];
 }

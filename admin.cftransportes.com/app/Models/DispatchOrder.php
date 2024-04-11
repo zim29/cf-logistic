@@ -27,28 +27,57 @@ class DispatchOrder extends Model
         'on_delivery',
         'status',
         'warehouse_id',
+        'driver_id',
     ];
 
-    public function cancel () : array
+    public function assign(int $driver_id): array
+    {
+        $response = [];
+
+        if ($this->on_delivery && \Auth::user()->role_id !== 1) {
+            $response = [
+                'status' => false,
+                'message' => __('No puedes asignar una órden de despacho que está en proceso de entrega'),
+            ];
+        } else if (\Auth::user()->role_id === 1 && $this->on_delivery) {
+            $response = [
+                'status' => true,
+                'message' => __('Asignación forzada exitosa'),
+            ];
+
+            $this->driver_id = $driver_id;
+            $this->on_delivery = true;
+            $this->save();
+
+        } else {
+            $response = [
+                'status' => true,
+                'message' => __('Asignación exitosa'),
+            ];
+
+            $this->driver_id = $driver_id;
+            $this->on_delivery = true;
+            $this->save();
+        }
+
+        return $response;
+    }
+
+    public function cancel(): array
     {
         $data = [];
-        if($this->status == false)
-        {
+        if ($this->status == false) {
             $data = [
                 'status' => false,
                 'message' => __('Esta orden de despacho ha sido anulada previamente'),
             ];
 
-        }
-        else if ($this->on_deliver == true)
-        {
+        } else if ($this->on_deliver == true) {
             $data = [
                 'status' => false,
                 'message' => __('No puedes anular una orden de despacho en proceso de envio'),
             ];
-        }
-        else 
-        {
+        } else {
             $data = [
                 'status' => true,
                 'message' => '',
@@ -63,37 +92,65 @@ class DispatchOrder extends Model
                 'status' => 'Orden de despacho cancelada',
                 'comment' => 'La órden de desapacho ' . $this->id . ' ha sido anulada. ',
             ];
-    
+
             OrderHistory::create($orderStatus);
+
+            $order = Order::find($this->order_id);
+
+            $items = [];
+            foreach ($order->items as $orderKey => $item) {
+                foreach ($this->items as $dispatchKey => $dispatchItem) {
+
+                    \Log::info($item);
+                    \Log::info($dispatchItem);
+                    if ($dispatchItem['name'] == $item['name']) {
+                        $newQuantity = $item['remaining_quantity'] + $dispatchItem['dispatchQuantity'];
+                        $item['remaining_quantity'] = $newQuantity;
+                    }
+
+                    $items[] = $item;
+                }
+            }
+
+
+            $order->items = $items;
+            $order->save();
         }
         return $data;
     }
 
-    public function createdAt () : Attribute
+    public function createdAt(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s'),
+            get: fn(string $value) => \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s'),
         );
     }
 
-    public function items () : Attribute
+    public function items(): Attribute
     {
         return Attribute::make(
-            set: fn (array $items) => serialize($items),
-            get: fn (string $items) => unserialize($items),
+            set: fn(array $items) => serialize($items),
+            get: fn(string $items) => unserialize($items),
         );
     }
 
     public function order()
     {
-        return $this->belongsTo( Order::class );
+        return $this->belongsTo(Order::class);
     }
 
-    public function creator () {
-        return $this->belongsTo( User::class, 'creator_id' );
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
     }
 
-    public function warehouse () {
-        return $this->belongsTo( Warehouse::class );
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(User::class, 'driver_id');
     }
 }
