@@ -2,18 +2,18 @@
 
 namespace App\Policies;
 
-use App\Models\DispatchOrder;
 use App\Models\User;
+use App\Models\VehicleType;
 use Illuminate\Auth\Access\Response;
 
-class DispatchOrderPolicy
+class VehicleTypePolicy
 {
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -21,9 +21,9 @@ class DispatchOrderPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, DispatchOrder $dispatchOrder): bool
+    public function view(User $user, VehicleType $vehicleType): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -33,7 +33,7 @@ class DispatchOrderPolicy
      */
     public function create(User $user): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -41,9 +41,9 @@ class DispatchOrderPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, DispatchOrder $dispatchOrder): bool
+    public function update(User $user, VehicleType $vehicleType): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -51,9 +51,9 @@ class DispatchOrderPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, DispatchOrder $dispatchOrder): bool
+    public function delete(User $user, VehicleType $vehicleType): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -61,9 +61,9 @@ class DispatchOrderPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, DispatchOrder $dispatchOrder): bool
+    public function restore(User $user, VehicleType $vehicleType): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -71,9 +71,9 @@ class DispatchOrderPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, DispatchOrder $dispatchOrder): bool
+    public function forceDelete(User $user, VehicleType $vehicleType): bool
     {
-        if( $user->role_id == 1 || $user->role_id == 4 ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }

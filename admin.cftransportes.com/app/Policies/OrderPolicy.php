@@ -43,6 +43,8 @@ class OrderPolicy
      */
     public function update(User $user, Order $order): bool
     {
+        if( $user->role_id == 1 || $user->role_id == 2 ) return true;
+
         return false;
     }
 

@@ -5,6 +5,7 @@
         <x-table>
             <x-slot name="head">
                 <x-table.head>{{ __('Placa') }}</x-table.head>
+                <x-table.head>{{ __('Tipo') }}</x-table.head>
                 <x-table.head>{{ __('Conductor') }}</x-table.head>
                 <x-table.head>{{ __('Creado por') }}</x-table.head>
                 <x-table.head>{{ __('Fecha de creación') }}</x-table.head>
@@ -15,6 +16,7 @@
                 @forelse ($results as $item)
                     <x-table.row onclick="location.href='{{route('vehicle-view', $item->id)}}'">
                         <x-table.cell>{{ $item->placard }}</x-table.cell>
+                        <x-table.cell>{{ $item->type->name  }}</x-table.cell>
                         <x-table.cell>{{ $item->driver->name ?? __('Sin asignar')  }}</x-table.cell>
                         <x-table.cell>{{ $item->creator->name ?? __('Sistema') }}</x-table.cell>
                         <x-table.cell>{{ $item->created_at }}</x-table.cell>
@@ -22,7 +24,7 @@
                     </x-table.row>
                 @empty
                     <x-table.row>
-                        <x-table.cell colspan="4" class="text-center">{{ __('Sin resultados...') }}</x-table.cell>
+                        <x-table.cell colspan="5" class="text-center">{{ __('Sin resultados...') }}</x-table.cell>
                     </x-table.row>
                 @endforelse
             </x-slot>

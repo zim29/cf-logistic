@@ -16,6 +16,7 @@ return new class extends Migration {
                 ->constrained()
                 ->restrictOnDelete();
             $table->foreignId('pay_method_id')
+                ->nullable()
                 ->constrained()
                 ->restrictOnDelete();
             $table->text('items');
@@ -24,7 +25,7 @@ return new class extends Migration {
             $table->boolean('is_approved')
                 ->default(false);
             $table->foreignId('creator_id')
-                        ->nullable();
+                ->nullable();
             $table->timestamps();
         });
     }

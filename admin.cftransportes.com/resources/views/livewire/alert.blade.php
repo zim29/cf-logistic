@@ -15,6 +15,9 @@
     @script
         <script>
             $wire.on('show-modal', () => {
+                document.querySelectorAll('.modal').forEach(element => {
+                    bootstrap.Modal.getOrCreateInstance(element).hide();
+                });
                 const modal = bootstrap.Modal.getOrCreateInstance('#alert_modal');
                 modal.show();
             });

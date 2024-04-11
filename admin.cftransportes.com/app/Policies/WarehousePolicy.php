@@ -13,7 +13,7 @@ class WarehousePolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->role_id == 1 ) return true;
+        if(in_array($user->role_id, [1,4]) ) return true;
 
         return false;
     }
@@ -23,7 +23,7 @@ class WarehousePolicy
      */
     public function view(User $user, Warehouse $warehouse): bool
     {
-        if($user->role_id == 1 ) return true;
+        if(in_array($user->role_id, [1,4]) ) return true;
 
         return false;
     }
@@ -33,7 +33,7 @@ class WarehousePolicy
      */
     public function create(User $user): bool
     {
-        if($user->role_id == 1 ) return true;
+        if(in_array($user->role_id, [1,4]) ) return true;
 
         return false;
     }
@@ -43,7 +43,7 @@ class WarehousePolicy
      */
     public function update(User $user, Warehouse $warehouse): bool
     {
-        if($user->role_id == 1 ) return true;
+        if(in_array($user->role_id, [1,4]) ) return true;
 
         return false;
     }

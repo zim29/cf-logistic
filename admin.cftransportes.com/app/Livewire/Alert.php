@@ -22,9 +22,9 @@ class Alert extends Component
     }
 
     #[On('error')]
-    public function error () : void 
+    public function error ($message = '') : void 
     {
-        $this->message = __('Ha ocurrido un error al procesar su solicitud');
+        $this->message = __("Ha ocurrido un error al procesar su solicitud \n $message");
         $this->icon = 'bi-exclamation-circle-fill';
         $this->color = 'danger';
 

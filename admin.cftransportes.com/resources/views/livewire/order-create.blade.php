@@ -10,10 +10,6 @@
                 <button wire:click="showClientDialog" type="button" class="btn btn-primary"
                     id="showClientDialog">{{ __('Buscar cliente') }}</button>
             </div>
-            <div class="mb-3">
-                <x-select-field tabindex="1" name="pay_method_id" label="Método de pago" model="form.pay_method_id"
-                    :options="$payMethods" />
-            </div>
             <x-table>
                 <x-slot name="head">
                     <x-table.head scope="col">{{ __('Descripción') }}</x-table.head>

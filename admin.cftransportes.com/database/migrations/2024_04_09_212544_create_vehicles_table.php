@@ -17,6 +17,8 @@ return new class extends Migration {
                 ->nullable();
             $table->foreignId('driver_id')
                 ->nullable();
+            $table->foreignId('vehicle_type_id')
+                ->nullable();
             $table->boolean('status')
                 ->default(true);
             $table->timestamps();

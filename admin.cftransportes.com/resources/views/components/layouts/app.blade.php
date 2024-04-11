@@ -10,10 +10,7 @@
     <title> CF Logistics </title>
     
     <!-- Favicon -->
-    <link rel="icon" href="https://cftransportes.com/sitepad-data/uploads/2024/03/cropped-PERFIL-32x32.png" sizes="32x32">
-    <link rel="icon" href="https://cftransportes.com/sitepad-data/uploads/2024/03/cropped-PERFIL-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon-precomposed" href="https://cftransportes.com/sitepad-data/uploads/2024/03/cropped-PERFIL-180x180.png">
-    <meta name="msapplication-TileImage" content="https://cftransportes.com/sitepad-data/uploads/2024/03/cropped-PERFIL-270x270.png">
+    <link rel="icon" href="{{ asset( 'favicon.ico' ) }}">
     
     <!-- Choices JS -->
     <script src="{{ asset( 'assets/libs/choices.js/public/assets/scripts/choices.min.js' ) }}"></script>
@@ -108,6 +105,7 @@
 
     <!-- Apex Charts JS -->
     <script src="{{ asset( 'assets/libs/apexcharts/apexcharts.min.js' ) }}"></script>
+
     @livewireScripts 
 
 </body>

@@ -11,10 +11,10 @@
         <div class="header-element">
             <div class="horizontal-logo">
                 <a href="https://cftransportes.com/" class="header-logo">
-                    <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo" class="desktop-logo">
-                    <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo" class="toggle-logo">
-                    <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo" class="desktop-dark">
-                    <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo" class="toggle-dark">
+                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="desktop-logo">
+                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="toggle-logo">
+                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="desktop-dark">
+                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo" class="toggle-dark">
                 </a>
             </div>
         </div>

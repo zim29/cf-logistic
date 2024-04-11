@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Login;
@@ -24,6 +25,10 @@ use App\Livewire\UserCreate;
 use App\Livewire\UserIndex;
 use App\Livewire\UserView;
 use App\Livewire\DispatchOrderIndex;
+use App\Livewire\DispatchOrderCreate;
+use App\Livewire\VehicleTypeCreate;
+use App\Livewire\VehicleTypeIndex;
+use App\Livewire\VehicleTypeView;
 
 
 
@@ -61,6 +66,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/view/{item}', UserView::class )->name('user-view');
 
     Route::get('/dispatch-order/index', DispatchOrderIndex::class )->name('dispatch-index');
+    Route::get('/dispatch-order/create', DispatchOrderCreate::class )->name('dispatch-create');
+
+    Route::get('/vehicle-type/create', VehicleTypeCreate::class )->name('vehicle-type-create');
+    Route::get('/vehicle-type/index', VehicleTypeIndex::class )->name('vehicle-type-index');
+    Route::get('/vehicle-type/view/{item}', VehicleTypeView::class )->name('vehicle-type-view');
+
+
+
 
 
 

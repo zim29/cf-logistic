@@ -13,7 +13,7 @@ class VehiclePolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->role_id == 1  ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -23,7 +23,7 @@ class VehiclePolicy
      */
     public function view(User $user, Vehicle $vehicle): bool
     {
-        if($user->role_id == 1  ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -33,7 +33,7 @@ class VehiclePolicy
      */
     public function create(User $user): bool
     {
-        if($user->role_id == 1  ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }
@@ -43,7 +43,7 @@ class VehiclePolicy
      */
     public function update(User $user, Vehicle $vehicle): bool
     {
-        if($user->role_id == 1  ) return true;
+        if($user->role_id == 1 ||  $user->role_id == 4 ) return true;
 
         return false;
     }

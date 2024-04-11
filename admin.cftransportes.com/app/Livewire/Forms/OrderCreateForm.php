@@ -13,7 +13,5 @@ class OrderCreateForm extends Form
     #[Validate('required')]
     public $client_id = null;
 
-    #[Validate('required')]
-    public $pay_method_id = '';
 
 }

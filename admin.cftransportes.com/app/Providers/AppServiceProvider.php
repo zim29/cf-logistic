@@ -29,9 +29,12 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\PersonType::observe(UpdateObserver::class);
         \App\Models\Order::observe(UpdateObserver::class);
         \App\Models\Vehicle::observe(UpdateObserver::class);
+        \App\Models\DispatchOrder::observe(UpdateObserver::class);
+        \App\Models\VehicleType::observe(UpdateObserver::class);
 
 
         \App\Models\Order::observe(\App\Observers\OrderObserver::class);
+        \App\Models\DispatchOrder::observe(\App\Observers\DispatchOrderObserver::class);
 
         Paginator::useBootstrap();
     }

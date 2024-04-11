@@ -4,13 +4,13 @@
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
         <a href="/" class="header-logo">
-            <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo"
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
                 class="desktop-logo">
-            <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo"
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
                 class="toggle-logo">
-            <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo"
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
                 class="desktop-dark">
-            <img src="https://cftransportes.com/sitepad-data/uploads/2024/03/PERFIL.png" alt="CFTransporte logo"
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="CFTransporte logo"
                 class="toggle-dark">
         </a>
     </div>
@@ -119,6 +119,27 @@
                     <!-- End::slide -->
                 @endcan
 
+                @can('viewAny', \App\Model\VehicleType::class)
+                    <!-- Start::slide -->
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <span class="side-menu__label">{{ __('Tipos de vehículo') }}</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide side-menu__label1">
+                                <a href="javascript:void(0)">{{ __('Tipos de vehículo') }}</a>
+                            </li>
+                            <li class="slide">
+                                <a href="{{ route('vehicle-type-create') }}" class="side-menu__item">Crear</a>
+                                <a href="{{ route('vehicle-type-index') }}" class="side-menu__item">Listar</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End::slide -->
+                @endcan
+
                 @can('viewAny', \App\Models\Warehouse::class)
                     <!-- Start::slide -->
                     <li class="slide has-sub">
@@ -155,6 +176,27 @@
                             <li class="slide">
                                 <a href="{{ route('user-create') }}" class="side-menu__item">Crear</a>
                                 <a href="{{ route('user-index') }}" class="side-menu__item">Listar</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End::slide -->
+                @endcan
+
+                @can('viewAny', \App\Model\DispatchOrder::class)
+                    <!-- Start::slide -->
+                    <li class="slide has-sub">
+                        <a href="javascript:void(0);" class="side-menu__item">
+                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <span class="side-menu__label">{{ __('Ordenes de despacho') }}</span>
+                            <i class="fe fe-chevron-right side-menu__angle"></i>
+                        </a>
+                        <ul class="slide-menu child1">
+                            <li class="slide side-menu__label1">
+                                <a href="javascript:void(0)">{{ __('Ordenes de despacho') }}</a>
+                            </li>
+                            <li class="slide">
+                                <a href="{{ route('dispatch-create') }}" class="side-menu__item">Crear</a>
+                                <a href="{{ route('dispatch-index') }}" class="side-menu__item">Listar</a>
                             </li>
                         </ul>
                     </li>

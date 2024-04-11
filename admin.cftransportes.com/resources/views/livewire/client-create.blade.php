@@ -219,7 +219,7 @@
                 <div class="col-sm-12">
                     <x-input-field 
                         name="funds_deposited_safe_health" 
-                        label="Fondos que depositare a SAFE & HEALTH CONSULTING provienen de:"
+                        label="Fondos que depositare a Carga, Flete y Transporte SA de CV provienen de:"
                         model="form.funds_deposited_safe_health"
                     /> 
                 </div>

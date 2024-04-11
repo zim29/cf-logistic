@@ -9,14 +9,11 @@ use Illuminate\Support\Facades\DB;
 use App\Livewire\Forms\OrderCreateForm as Form;
 
 use App\Models\Order;
-use App\Models\PayMethod;
 use App\Models\Client;
 
 class OrderCreate extends Component
 {
     public Form $form;
-    public array $payMethods;
-
     public $search = '';
 
     public Client | null $client;
@@ -50,11 +47,15 @@ class OrderCreate extends Component
     }
 
     public function save() {
-        $this->authorize('create', Order::class);
+
         $data = $this->form->validate();
 
         try{
             DB::beginTransaction();
+
+            foreach ($data['items'] as $key => $item) {
+                $data['items'][$key]['remaining_quantity'] = $item['quantity'];
+            }
 
             $order = Order::create($data);
 
@@ -73,11 +74,7 @@ class OrderCreate extends Component
 
     public function mount () : void 
     {
-        $this->authorize('create', Order::class);
-        $this->payMethods = PayMethod::select('id', 'name')
-                                        ->where('status', true)
-                                        ->pluck('name', 'id')
-                                        ->toArray();
+
         $this->addItemField();
 
     }

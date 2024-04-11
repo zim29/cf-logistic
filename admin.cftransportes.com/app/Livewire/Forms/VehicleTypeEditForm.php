@@ -5,12 +5,11 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class VehicleCreateForm extends Form
+class VehicleTypeEditForm extends Form
 {
     #[Validate('required|string|min:3|max:255')]
-    public $placard;
+    public $name;
 
-    #[Validate('required|exists:vehicle_types,id')]
-    public $vehicle_type_id='';
-
+    #[Validate('required|boolean')]
+    public $status;
 }

@@ -21,6 +21,7 @@ class Vehicle extends Model
     protected $fillable = [
         'placard',
         'driver_id',
+        'vehicle_type_id',
         'creator_id',
         'status',
     ];
@@ -31,5 +32,9 @@ class Vehicle extends Model
 
     public function driver () {
         return $this->belongsTo(User::class, 'driver_id');
+    }
+
+    public function type () {
+        return $this->belongsTo( VehicleType::class, 'vehicle_type_id' );
     }
 }
