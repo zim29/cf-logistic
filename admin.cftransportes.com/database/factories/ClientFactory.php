@@ -57,8 +57,8 @@ class ClientFactory extends Factory
             'tax_classification_id' => \App\Models\TaxClassification::InRandomOrder()->first()->id,
             'anti_money_laundering_policy' => $this->faker->boolean,
             'geographic_zones' => $this->faker->text,
-            'commercial_references' => $this->faker->text,
-            'bank_references' => $this->faker->text,
+            'commercial_references' => [],
+            'bank_references' => [],
         ];
     }
 }
