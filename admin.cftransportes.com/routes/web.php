@@ -1,6 +1,8 @@
 <?php
 
 
+use App\Livewire\DispatchOrderDeliver;
+use App\Livewire\DispatchOrderVerify;
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Login;
@@ -67,6 +69,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dispatch-order/index', DispatchOrderIndex::class )->name('dispatch-index');
     Route::get('/dispatch-order/create', DispatchOrderCreate::class )->name('dispatch-create');
+    Route::get('/dispatch-order/verify/{item}', DispatchOrderVerify::class )->name('dispatch-verify');
+    Route::get('/dispatch-order/deliver/{item}', DispatchOrderDeliver::class )->name('dispatch-deliver');
 
     Route::get('/vehicle-type/create', VehicleTypeCreate::class )->name('vehicle-type-create');
     Route::get('/vehicle-type/index', VehicleTypeIndex::class )->name('vehicle-type-index');

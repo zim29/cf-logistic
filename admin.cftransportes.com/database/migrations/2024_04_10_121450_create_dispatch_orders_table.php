@@ -20,6 +20,12 @@ return new class extends Migration {
                 ->nullable();
             $table->boolean('on_delivery')
                 ->default(false);
+            $table->boolean('accepted_by_delivery')
+                ->default(false);
+            $table->boolean('awaiting_for_delivery')
+                ->default(false);
+            $table->boolean('delivered')
+                ->default(false);
             $table->text('items');
             $table->boolean('status')
                 ->default(true);

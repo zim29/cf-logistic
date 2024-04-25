@@ -54,13 +54,36 @@ class User extends Authenticatable
         ];
     }
 
-    public function role ()
+    public function role()
     {
-        return $this->belongsTo( Role::class );
+        return $this->belongsTo(Role::class);
     }
 
-    public function vehicle () 
+    public function vehicle()
     {
-        return $this->hasMany( Vehicle::class, 'driver_id' );
+        return $this->hasMany(Vehicle::class, 'driver_id');
+    }
+
+    public function dispatchOrder()
+    {
+        return $this->hasMany(DispatchOrder::class, 'driver_id');
+    }
+
+    public function getAwatingDispatchOrders()
+    {
+        $query = $this->dispatchOrder
+            ->where('driver_id', $this->id)
+            ->where('accepted_by_delivery', false);
+
+        return $query;
+    }
+
+    public function getInProcessDispatchOrders()
+    {
+        $query = $this->dispatchOrder
+            ->where('driver_id', $this->id)
+            ->where('accepted_by_delivery', true);
+
+        return $query;
     }
 }

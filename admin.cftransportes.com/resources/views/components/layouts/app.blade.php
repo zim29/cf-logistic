@@ -106,7 +106,10 @@
     <!-- Apex Charts JS -->
     <script src="{{ asset( 'assets/libs/apexcharts/apexcharts.min.js' ) }}"></script>
 
+    @stack('scripts')
+    
     @livewireScripts 
+
 
 </body>
 

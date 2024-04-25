@@ -31,7 +31,7 @@
                 <!-- Start::slide -->
                 <li class="slide">
                     <a href="{{ route('dashboard') }}" class="side-menu__item" >
-                        <i class="side-menu__icon"></i>
+                        <i class="bx bxs-dashboard side-menu__icon"></i>
                         <span class="side-menu__label">{{ __('Dashboard') }}</span>
                         <i class="fe fe-chevron-right side-menu__angle"></i>
                     </a>
@@ -110,7 +110,7 @@
                     <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
-                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <i class="bx bxs-truck side-menu__icon"></i>
                             <span class="side-menu__label">{{ __('Vehículos') }}</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
@@ -131,7 +131,7 @@
                     <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
-                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <i class="bx bxs-car side-menu__icon"></i>
                             <span class="side-menu__label">{{ __('Tipos de vehículo') }}</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
@@ -152,7 +152,7 @@
                     <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
-                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <i class="bx bx-buildings side-menu__icon"></i>
                             <span class="side-menu__label">{{ __('Almacenes') }}</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
@@ -173,7 +173,7 @@
                     <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
-                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <i class="bx bx-user side-menu__icon"></i>
                             <span class="side-menu__label">{{ __('Usuarios') }}</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
@@ -194,7 +194,7 @@
                     <!-- Start::slide -->
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
-                            <i class="bx bx-book-contnt side-menu__icon"></i>
+                            <i class="bx bx-spreadsheet side-menu__icon"></i>
                             <span class="side-menu__label">{{ __('Ordenes de despacho') }}</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>

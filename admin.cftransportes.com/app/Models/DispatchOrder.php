@@ -28,18 +28,28 @@ class DispatchOrder extends Model
         'status',
         'warehouse_id',
         'driver_id',
+        'accepted_by_delivery',
+        'awaiting_for_delivery',
+        'delivered',
     ];
 
     public function assign(int $driver_id): array
     {
         $response = [];
 
-        if ($this->on_delivery && \Auth::user()->role_id !== 1) {
+        if (
+            $this->on_delivery &&
+            \Auth::user()->role_id !== 1
+        ) {
             $response = [
                 'status' => false,
                 'message' => __('No puedes asignar una órden de despacho que está en proceso de entrega'),
             ];
-        } else if (\Auth::user()->role_id === 1 && $this->on_delivery) {
+        } else if (
+            \Auth::user()->role_id === 1 &&
+            $this->on_delivery &&
+            $this->accepted_by_delivery == false
+        ) {
             $response = [
                 'status' => true,
                 'message' => __('Asignación forzada exitosa'),
@@ -87,7 +97,7 @@ class DispatchOrder extends Model
             $this->save();
 
             $orderStatus = [
-                'order_id' => $this->id,
+                'order_id' => $this->order->id,
                 'creator_id' => \Auth::id(),
                 'status' => 'Orden de despacho cancelada',
                 'comment' => 'La órden de desapacho ' . $this->id . ' ha sido anulada. ',
@@ -119,11 +129,51 @@ class DispatchOrder extends Model
         return $data;
     }
 
+    public function accept(int | null $driver_id = null): array
+    {
+        $response = [];
+
+        if ($this->accepted_by_delivery == true) {
+            $response = [
+                'status' => false,
+                'message' => __('Este pedido ya ha sido asignado, no se puede reasignar. Contacte al administrador.'),
+            ];
+        }  else {
+            $response = [
+                'status' => true,
+                'message' => __('Orden de despacho aceptada exitosamente.'),
+            ];
+
+            $this->accepted_by_delivery = true;
+            $this->save();
+
+            $orderStatus = [
+                'order_id' => $this->order->id,
+                'creator_id' => \Auth::id(),
+                'status' => 'Orden de despacho en tránsito',
+                'comment' => 'La órden de desapacho ' . $this->id . ' está en tránsito a destino indicado. ',
+            ];
+
+            OrderHistory::create($orderStatus);
+
+        }
+
+        return $response;
+    }
+
     public function createdAt(): Attribute
     {
         return Attribute::make(
             get: fn(string $value) => \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s'),
         );
+    }
+
+    public function deliver ($signature) : array
+    {
+        $response = [];
+
+
+        return $response;
     }
 
     public function items(): Attribute

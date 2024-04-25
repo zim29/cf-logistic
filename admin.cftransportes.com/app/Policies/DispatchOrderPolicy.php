@@ -77,4 +77,19 @@ class DispatchOrderPolicy
 
         return false;
     }
+
+
+    public function acceptOrders(User $user): bool
+    {
+        if( $user->role_id == 5 ) return true;
+
+        return false;
+    }
+
+    public function accept(User $user, DispatchOrder $dispatchOrder): bool
+    {
+        if( $dispatchOrder->driver_id == $user->id )  return true;
+
+        return false;
+    }
 }
